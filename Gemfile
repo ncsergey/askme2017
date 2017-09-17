@@ -1,20 +1,21 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 5.1.4'
-gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
-gem 'uglifier', '~> 3.2'
+gem 'jquery-rails'
+gem 'uglifier'
+gem 'rails_12factor'
 
-gem 'russian', '~> 0.6.0'
-gem 'email_validator', '~> 1.6'
+gem 'russian'
+gem 'email_validator'
 
 group :development, :test do
   gem 'sqlite3'
-  gem 'byebug', '~> 9.1'
+  gem 'byebug'
 end
 
 group :development do
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console'
+  gem 'listen'
 end
 
 group :production do
