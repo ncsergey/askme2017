@@ -40,11 +40,12 @@ class UsersController < ApplicationController
     # метод user_params.
     @user = User.new(user_params)
 
+    @user.head_color = '#005a55'
+
     # Пытаемся сохранить пользователя.
     if @user.save
       # Если удалось, отправляем пользователя на главную с сообщение, что
       # пользователь создан.
-      @user.head_color = '#005a55'
       session[:user_id] = @user.id
       redirect_to root_url, notice: 'Пользователь успешно зарегестрирован!'
     else
@@ -105,6 +106,13 @@ class UsersController < ApplicationController
     @questions_count = @questions.count
     @answers_count = @questions.where.not(answer: nil).count
     @unanswers_count = @questions_count - @answers_count
+  end
+
+  def destroy
+    session[:user_id] = nil
+    @user.delete
+
+    redirect_to root_path, notice: 'Пользователь удален!'
   end
 
   private
