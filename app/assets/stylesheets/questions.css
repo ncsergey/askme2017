@@ -29,6 +29,18 @@
 .question-date {
   color: #a0a0a0;
   font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.question-left {
+  float: left;
+  width: 50%;
+}
+
+.question-right {
+  float: left;
+  width: 50%;
+  text-align: right;
 }
 
 .question-actions {

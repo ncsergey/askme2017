@@ -18,7 +18,13 @@
 
     <%# Дата создания вопроса (отформатированная) %>
     <div class="question-date">
-      <%= l(question.created_at, format: :short) %>
+      <div class="question-left">
+        <%= l(question.created_at, format: :short) %>
+      </div>
+      <div class="question-right">
+        <%= 'Автор:' if question.author_id.present?%>
+        <%= link_to question.author.username, user_path(question.author_id) if question.author_id.present?%>
+      </div>
     </div>
   </div>
 
