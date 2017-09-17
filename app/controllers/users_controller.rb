@@ -44,6 +44,7 @@ class UsersController < ApplicationController
     if @user.save
       # Если удалось, отправляем пользователя на главную с сообщение, что
       # пользователь создан.
+      @user.head_color = '#005a55'
       session[:user_id] = @user.id
       redirect_to root_url, notice: 'Пользователь успешно зарегестрирован!'
     else
@@ -126,6 +127,6 @@ class UsersController < ApplicationController
   # :avatar_url. Другие ключи будут отброшены.
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation,
-                                 :name, :username, :avatar_url)
+                                 :name, :username, :avatar_url, :head_color)
   end
 end
