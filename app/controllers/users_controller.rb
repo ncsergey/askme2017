@@ -50,7 +50,7 @@ class UsersController < ApplicationController
       # (обратите внимание, это не редирект), страницу new с формой
       # пользователя, который у нас лежит в переменной @user. В этом объекте
       # содержатся ошибки валидации, которые выведет шаблон формы.
-      render 'new'
+      render :edit
     end
   end
 
@@ -99,6 +99,10 @@ class UsersController < ApplicationController
     # создаем болванку вопроса, вызывая метод build у результата вызова метода
     # @user.questions.
     @new_question = @user.questions.build
+
+    @questions_count = @questions.count
+    @answer_count = @questions.where.not(answer: nil).count
+    @unanswers_count = @questions - @answer_count
   end
 
   private
