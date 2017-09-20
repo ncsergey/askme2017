@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
   validates :password, presence: true, on: :create
-
+  validates_format_of :head_color, with: /\A#[0-9a-fA-F]{6}\z/
   validates_confirmation_of :password
 
   before_save :encrypt_password
